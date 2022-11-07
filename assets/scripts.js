@@ -6,14 +6,44 @@ var weather2 = document.querySelector('#weather2')
 var weather3 = document.querySelector('#weather3')
 var weather4 = document.querySelector('#weather4')
 var weather5 = document.querySelector('#weather5')
+var searchHistoryContainer = document.querySelector('#history')
 
 function searchCity(event) {
     event.preventDefault();
 
     var input = document.querySelector('#searchBar').value;
+    var inputEl = document.createElement('li')
+    inputEl.textContent = input
+    searchHistoryContainer.appendChild(inputEl)
 
-    // var searchBtn = document.querySelector('#searchBtn')
+    //local storage hell again
+    // var searchHistory = localStorage.getItem("searchHistory")
 
+    // if (searchHistory == null) {
+    //     searchHistory = localStorage.getItem("searchHistory")
+    //     var previousSearchHistory = []
+    //     previousSearchHistory.push(searchHistory)
+
+    //     localStorage.setItem("input", JSON.stringify(input))
+    //     previousSearchHistory.push(input)
+    //     console.log(previousSearchHistory)
+
+    //     localStorage.setItem("searchHistory", JSON.stringify(previousSearchHistory))
+    // }
+    // else {
+    //     searchHistory = []
+    //     searchHistory.push(localStorage.getItem("searchHistory"))
+    //     console.log(searchHistory)
+    //     localStorage.setItem("searchHistory",searchHistory)
+    //     console.log(searchHistory)
+    //     searchHistory.push((input))
+    //     console.log(searchHistory)
+    //     localStorage.setItem("searchHistory", JSON.parse(searchHistory))
+    //     console.log(searchHistory)    
+    // }
+
+    // var searchList = document.querySelector('#history')
+    //end local storage hell, hopefully
     if (!input) {
         console.error('Please enter a city');
         return;
@@ -28,8 +58,6 @@ function searchCity(event) {
             })
             .then(function (geodata) {
                 console.log(geodata);
-                // console.log(geodata[0].lat)
-                // console.log(geodata[0].lon)
                 lat = geodata[0].lat
                 lon = geodata[0].lon
 
@@ -88,8 +116,6 @@ function searchCity(event) {
                             return weather1Response.json();
                         })
                         .then(function (weather1Data) {
-                            console.log(weather1Data);
-                            //get variables from API
                             var cityname = weather1Data.city.name
                             var date = weather1Data.list[0].dt_txt
                             var iconcode = weather1Data.list[0].weather[0].icon
@@ -97,7 +123,6 @@ function searchCity(event) {
                             var icon = document.createElement('img')
                             icon.setAttribute('src', iconURL)
 
-                            //write captured variables to html doc
                             var weatherH3 = document.createElement('h3')
                             weatherH3.textContent = cityname + " " + date
                             weather1.appendChild(weatherH3)
@@ -125,6 +150,7 @@ function searchCity(event) {
                         })
                 }
                 getFutureWeather1()
+
                 function getFutureWeather2 () {
                     weather2.innerHTML = ""
                     var weather2URL = 'https://api.openweathermap.org/data/2.5/forecast?lat=' + lat + '&lon=' + lon + '&appid=ea7c84a3e4005b409a9bd52d73a72b21&units=imperial'
@@ -133,8 +159,6 @@ function searchCity(event) {
                             return weather2Response.json();
                         })
                         .then(function (weather2Data) {
-                            console.log(weather2Data);
-                            //get variables from API
                             var cityname = weather2Data.city.name
                             var date = weather2Data.list[8].dt_txt
                             var iconcode = weather2Data.list[8].weather[0].icon
@@ -142,7 +166,6 @@ function searchCity(event) {
                             var icon = document.createElement('img')
                             icon.setAttribute('src', iconURL)
 
-                            //write captured variables to html doc
                             var weatherH3 = document.createElement('h3')
                             weatherH3.textContent = cityname + " " + date
                             weather2.appendChild(weatherH3)
@@ -170,6 +193,7 @@ function searchCity(event) {
                         })
                 }
                 getFutureWeather2()
+
                 function getFutureWeather3 () {
                     weather3.innerHTML = ""
                     var weather3URL = 'https://api.openweathermap.org/data/2.5/forecast?lat=' + lat + '&lon=' + lon + '&appid=ea7c84a3e4005b409a9bd52d73a72b21&units=imperial'
@@ -178,8 +202,6 @@ function searchCity(event) {
                             return weather3Response.json();
                         })
                         .then(function (weather3Data) {
-                            console.log(weather3Data);
-                            //get variables from API
                             var cityname = weather3Data.city.name
                             var date = weather3Data.list[16].dt_txt
                             var iconcode = weather3Data.list[16].weather[0].icon
@@ -187,7 +209,6 @@ function searchCity(event) {
                             var icon = document.createElement('img')
                             icon.setAttribute('src', iconURL)
 
-                            //write captured variables to html doc
                             var weatherH3 = document.createElement('h3')
                             weatherH3.textContent = cityname + " " + date
                             weather3.appendChild(weatherH3)
@@ -215,6 +236,7 @@ function searchCity(event) {
                         })
                 }
                 getFutureWeather3()
+
                 function getFutureWeather4 () {
                     weather4.innerHTML = ""
                     var weather4URL = 'https://api.openweathermap.org/data/2.5/forecast?lat=' + lat + '&lon=' + lon + '&appid=ea7c84a3e4005b409a9bd52d73a72b21&units=imperial'
@@ -223,8 +245,6 @@ function searchCity(event) {
                             return weather4Response.json();
                         })
                         .then(function (weather4Data) {
-                            console.log(weather4Data);
-                            //get variables from API
                             var cityname = weather4Data.city.name
                             var date = weather4Data.list[24].dt_txt
                             var iconcode = weather4Data.list[24].weather[0].icon
@@ -232,7 +252,6 @@ function searchCity(event) {
                             var icon = document.createElement('img')
                             icon.setAttribute('src', iconURL)
 
-                            //write captured variables to html doc
                             var weatherH3 = document.createElement('h3')
                             weatherH3.textContent = cityname + " " + date
                             weather4.appendChild(weatherH3)
@@ -260,6 +279,7 @@ function searchCity(event) {
                         })
                 }
                 getFutureWeather4()
+
                 function getFutureWeather5 () {
                     weather5.innerHTML = ""
                     var weather5URL = 'https://api.openweathermap.org/data/2.5/forecast?lat=' + lat + '&lon=' + lon + '&appid=ea7c84a3e4005b409a9bd52d73a72b21&units=imperial'
@@ -268,8 +288,6 @@ function searchCity(event) {
                             return weather5Response.json();
                         })
                         .then(function (weather5Data) {
-                            console.log(weather5Data);
-                            //get variables from API
                             var cityname = weather5Data.city.name
                             var date = weather5Data.list[32].dt_txt
                             var iconcode = weather5Data.list[32].weather[0].icon
@@ -277,7 +295,6 @@ function searchCity(event) {
                             var icon = document.createElement('img')
                             icon.setAttribute('src', iconURL)
 
-                            //write captured variables to html doc
                             var weatherH3 = document.createElement('h3')
                             weatherH3.textContent = cityname + " " + date
                             weather5.appendChild(weatherH3)
@@ -306,6 +323,7 @@ function searchCity(event) {
                 }
                 getFutureWeather5()
             })
+
     }
     getCoordinates();
 
