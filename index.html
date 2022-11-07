@@ -13,15 +13,31 @@
     <header>
         <h1>Weather Dashbord</h1>
     </header>
-    <div>
-        <h2>Search for a City:</h2>
-        <form id="search">
-            <input id="searchBar" type="text" placeholder="Enter City">
-            <button id="searchBtn">Search</button>
-            <p>For more specific results, include the city, state (optional), and country code.</p>
-            <p>Ex: if you want Springfield, Missouri, search "Springfield,MO,US"</p>
-        </form>
-    </div>
+    <table>
+        <td>
+            <h2>Search for a City:</h2>
+            <form id="search">
+                <input id="searchBar" type="text" placeholder="Enter City">
+                <button id="searchBtn">Search</button>
+                <p>For more specific results, include the city, state (optional), and country code.</p>
+                <p>Ex: if you want Springfield, Missouri, search "Springfield,MO,US"</p>
+            </form>
+        </td>
+        <td>
+            <table>
+                <tr id="currentWeather">
+                </tr>
+                <tr>
+                    <td id="weather1"></td>
+                    <td id="weather2"></td>
+                    <td id="weather3"></td>
+                    <td id="weather4"></td>
+                    <td id="weather5"></td>
+                </tr>
+            </table>
+        </td>
+    </table>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js"></script>
     <script src="assets/scripts.js"></script>
 </body>
 
