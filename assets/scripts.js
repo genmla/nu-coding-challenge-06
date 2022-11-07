@@ -64,7 +64,7 @@ function searchCity(event) {
 
                             var temp = Math.floor(weatherData.main.temp)
                             var dispTemp = document.createElement('p')
-                            dispTemp.textContent = 'Current Temperatue: ' + temp + '°F'
+                            dispTemp.textContent = 'Current Temperature: ' + temp + '°F'
                             currentWeather.appendChild(dispTemp)
                             
                             var humidity = weatherData.main.humidity
@@ -72,7 +72,7 @@ function searchCity(event) {
                             dispHumidity.textContent = 'Humidity: ' + humidity + '%'
                             currentWeather.appendChild(dispHumidity)
 
-                            var wind = weatherData.wind.speed
+                            var wind = Math.floor(weatherData.wind.speed)
                             dispWind = document.createElement('p')
                             dispWind.textContent = 'Wind: ' + wind + ' mph'
                             currentWeather.appendChild(dispWind)
@@ -105,20 +105,20 @@ function searchCity(event) {
 
                             var description = weather1Data.list[0].weather[0].description
                             var dispDescript = document.createElement('p')
-                            dispDescript.textContent = 'Current Weather: ' + description
+                            dispDescript.textContent = 'Forecast: ' + description
                             weather1.appendChild(dispDescript)
 
                             var temp = Math.floor(weather1Data.list[0].main.temp)
                             var dispTemp = document.createElement('p')
-                            dispTemp.textContent = 'Current Temperatue: ' + temp + '°F'
+                            dispTemp.textContent = 'Temperature: ' + temp + '°F'
                             weather1.appendChild(dispTemp)
                             
-                            var humidity = weather1Data.list[0].main.humidity
+                            var humidity = Math.floor(weather1Data.list[0].main.humidity)
                             var dispHumidity = document.createElement('p')
                             dispHumidity.textContent = 'Humidity: ' + humidity + '%'
                             weather1.appendChild(dispHumidity)
 
-                            var wind = weather1Data.list[0].wind.speed
+                            var wind = Math.floor(weather1Data.list[0].wind.speed)
                             dispWind = document.createElement('p')
                             dispWind.textContent = 'Wind: ' + wind + ' mph'
                             weather1.appendChild(dispWind)
@@ -150,12 +150,12 @@ function searchCity(event) {
 
                             var description = weather2Data.list[8].weather[0].description
                             var dispDescript = document.createElement('p')
-                            dispDescript.textContent = 'Current Weather: ' + description
+                            dispDescript.textContent = 'Forecast: ' + description
                             weather2.appendChild(dispDescript)
 
                             var temp = Math.floor(weather2Data.list[8].main.temp)
                             var dispTemp = document.createElement('p')
-                            dispTemp.textContent = 'Current Temperatue: ' + temp + '°F'
+                            dispTemp.textContent = 'Temperature: ' + temp + '°F'
                             weather2.appendChild(dispTemp)
                             
                             var humidity = weather2Data.list[8].main.humidity
@@ -163,13 +163,148 @@ function searchCity(event) {
                             dispHumidity.textContent = 'Humidity: ' + humidity + '%'
                             weather2.appendChild(dispHumidity)
 
-                            var wind = weather2Data.list[8].wind.speed
+                            var wind = Math.floor(weather2Data.list[8].wind.speed)
                             dispWind = document.createElement('p')
                             dispWind.textContent = 'Wind: ' + wind + ' mph'
                             weather2.appendChild(dispWind)
                         })
                 }
                 getFutureWeather2()
+                function getFutureWeather3 () {
+                    weather3.innerHTML = ""
+                    var weather3URL = 'https://api.openweathermap.org/data/2.5/forecast?lat=' + lat + '&lon=' + lon + '&appid=ea7c84a3e4005b409a9bd52d73a72b21&units=imperial'
+                    fetch(weather3URL)
+                        .then(function (weather3Response) {
+                            return weather3Response.json();
+                        })
+                        .then(function (weather3Data) {
+                            console.log(weather3Data);
+                            //get variables from API
+                            var cityname = weather3Data.city.name
+                            var date = weather3Data.list[16].dt_txt
+                            var iconcode = weather3Data.list[16].weather[0].icon
+                            var iconURL = 'https://openweathermap.org/img/wn/'+ iconcode + '@2x.png'
+                            var icon = document.createElement('img')
+                            icon.setAttribute('src', iconURL)
+
+                            //write captured variables to html doc
+                            var weatherH3 = document.createElement('h3')
+                            weatherH3.textContent = cityname + " " + date
+                            weather3.appendChild(weatherH3)
+                            weather3.appendChild(icon)
+
+                            var description = weather3Data.list[16].weather[0].description
+                            var dispDescript = document.createElement('p')
+                            dispDescript.textContent = 'Forecast: ' + description
+                            weather3.appendChild(dispDescript)
+
+                            var temp = Math.floor(weather3Data.list[16].main.temp)
+                            var dispTemp = document.createElement('p')
+                            dispTemp.textContent = 'Temperature: ' + temp + '°F'
+                            weather3.appendChild(dispTemp)
+                            
+                            var humidity = weather3Data.list[16].main.humidity
+                            var dispHumidity = document.createElement('p')
+                            dispHumidity.textContent = 'Humidity: ' + humidity + '%'
+                            weather3.appendChild(dispHumidity)
+
+                            var wind = Math.floor(weather3Data.list[16].wind.speed)
+                            dispWind = document.createElement('p')
+                            dispWind.textContent = 'Wind: ' + wind + ' mph'
+                            weather3.appendChild(dispWind)
+                        })
+                }
+                getFutureWeather3()
+                function getFutureWeather4 () {
+                    weather4.innerHTML = ""
+                    var weather4URL = 'https://api.openweathermap.org/data/2.5/forecast?lat=' + lat + '&lon=' + lon + '&appid=ea7c84a3e4005b409a9bd52d73a72b21&units=imperial'
+                    fetch(weather4URL)
+                        .then(function (weather4Response) {
+                            return weather4Response.json();
+                        })
+                        .then(function (weather4Data) {
+                            console.log(weather4Data);
+                            //get variables from API
+                            var cityname = weather4Data.city.name
+                            var date = weather4Data.list[24].dt_txt
+                            var iconcode = weather4Data.list[24].weather[0].icon
+                            var iconURL = 'https://openweathermap.org/img/wn/'+ iconcode + '@2x.png'
+                            var icon = document.createElement('img')
+                            icon.setAttribute('src', iconURL)
+
+                            //write captured variables to html doc
+                            var weatherH3 = document.createElement('h3')
+                            weatherH3.textContent = cityname + " " + date
+                            weather4.appendChild(weatherH3)
+                            weather4.appendChild(icon)
+
+                            var description = weather4Data.list[24].weather[0].description
+                            var dispDescript = document.createElement('p')
+                            dispDescript.textContent = 'Forecast: ' + description
+                            weather4.appendChild(dispDescript)
+
+                            var temp = Math.floor(weather4Data.list[24].main.temp)
+                            var dispTemp = document.createElement('p')
+                            dispTemp.textContent = 'Temperature: ' + temp + '°F'
+                            weather4.appendChild(dispTemp)
+                            
+                            var humidity = weather4Data.list[24].main.humidity
+                            var dispHumidity = document.createElement('p')
+                            dispHumidity.textContent = 'Humidity: ' + humidity + '%'
+                            weather4.appendChild(dispHumidity)
+
+                            var wind = Math.floor(weather4Data.list[24].wind.speed)
+                            dispWind = document.createElement('p')
+                            dispWind.textContent = 'Wind: ' + wind + ' mph'
+                            weather4.appendChild(dispWind)
+                        })
+                }
+                getFutureWeather4()
+                function getFutureWeather5 () {
+                    weather5.innerHTML = ""
+                    var weather5URL = 'https://api.openweathermap.org/data/2.5/forecast?lat=' + lat + '&lon=' + lon + '&appid=ea7c84a3e4005b409a9bd52d73a72b21&units=imperial'
+                    fetch(weather5URL)
+                        .then(function (weather5Response) {
+                            return weather5Response.json();
+                        })
+                        .then(function (weather5Data) {
+                            console.log(weather5Data);
+                            //get variables from API
+                            var cityname = weather5Data.city.name
+                            var date = weather5Data.list[32].dt_txt
+                            var iconcode = weather5Data.list[32].weather[0].icon
+                            var iconURL = 'https://openweathermap.org/img/wn/'+ iconcode + '@2x.png'
+                            var icon = document.createElement('img')
+                            icon.setAttribute('src', iconURL)
+
+                            //write captured variables to html doc
+                            var weatherH3 = document.createElement('h3')
+                            weatherH3.textContent = cityname + " " + date
+                            weather5.appendChild(weatherH3)
+                            weather5.appendChild(icon)
+
+                            var description = weather5Data.list[32].weather[0].description
+                            var dispDescript = document.createElement('p')
+                            dispDescript.textContent = 'Forecast: ' + description
+                            weather5.appendChild(dispDescript)
+
+                            var temp = Math.floor(weather5Data.list[32].main.temp)
+                            var dispTemp = document.createElement('p')
+                            dispTemp.textContent = 'Temperature: ' + temp + '°F'
+                            weather5.appendChild(dispTemp)
+                            
+                            var humidity = weather5Data.list[32].main.humidity
+                            var dispHumidity = document.createElement('p')
+                            dispHumidity.textContent = 'Humidity: ' + humidity + '%'
+                            weather5.appendChild(dispHumidity)
+
+                            var wind = Math.floor(weather5Data.list[32].wind.speed)
+                            dispWind = document.createElement('p')
+                            dispWind.textContent = 'Wind: ' + wind + ' mph'
+                            weather5.appendChild(dispWind)
+                        })
+                }
+                getFutureWeather5()
             })
     }
     getCoordinates();
