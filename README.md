@@ -9,7 +9,7 @@ This applicaiton allows for input of a city name in the search bar, then populat
 
 To use this application, enter the name of a city in the search bar and click "Search." To search a previously searched city again, select it from the Search History section.
 
-![alt text](assets/images/screenshot.png)
+![screenshot of application showing weather stats for searched City and history of previously searched cities](/assets/Weather-Dashboard.jpg)
 
 URL: 
 
