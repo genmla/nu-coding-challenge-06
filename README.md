@@ -11,7 +11,7 @@ To use this application, enter the name of a city in the search bar and click "S
 
 ![screenshot of application showing weather stats for searched City and history of previously searched cities](/assets/Weather-Dashboard.jpg)
 
-URL: 
+URL: https://genmla.github.io/nu-coding-challenge-06/
 
 ## License
 
