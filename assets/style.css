@@ -1,0 +1,11 @@
+tr {
+    border: 2px solid black;
+    margin: 5px;
+}
+td {
+    /* border: 2px solid black; */
+    margin: 5px;
+}
+ul {
+    list-style-type: none;
+}
