@@ -17,7 +17,7 @@ function searchCity(event) {
     searchHistoryContainer.appendChild(inputEl)
 
     function getCoordinates() {
-        var geocodeURL = 'http://api.openweathermap.org/geo/1.0/direct?q=' + input + '&limit=5&appid=ea7c84a3e4005b409a9bd52d73a72b21'
+        var geocodeURL = 'https://api.openweathermap.org/geo/1.0/direct?q=' + input + '&limit=5&appid=ea7c84a3e4005b409a9bd52d73a72b21'
         fetch(geocodeURL)
             .then(function (georesponse) {
                 return georesponse.json();
