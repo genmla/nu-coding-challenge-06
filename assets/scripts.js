@@ -301,7 +301,7 @@ searchHistoryContainer.addEventListener('click', function (event) {
         oldSearch = searchedCity.textContent
         console.log(oldSearch)
         function getCoordinates() {
-            var geocodeURL = 'http://api.openweathermap.org/geo/1.0/direct?q=' + oldSearch + '&limit=5&appid=ea7c84a3e4005b409a9bd52d73a72b21'
+            var geocodeURL = 'https://api.openweathermap.org/geo/1.0/direct?q=' + oldSearch + '&limit=5&appid=ea7c84a3e4005b409a9bd52d73a72b21'
             fetch(geocodeURL)
                 .then(function (georesponse) {
                     return georesponse.json();
@@ -579,5 +579,5 @@ searchHistoryContainer.addEventListener('click', function (event) {
 })
     
 
-// Geocode URL to get coordinates from city = 'http://api.openweathermap.org/geo/1.0/direct?q={city name},{state code},{country code}&limit={limit}&appid=ea7c84a3e4005b409a9bd52d73a72b21'
+// Geocode URL to get coordinates from city = 'https://api.openweathermap.org/geo/1.0/direct?q={city name},{state code},{country code}&limit={limit}&appid=ea7c84a3e4005b409a9bd52d73a72b21'
 // Weather URL to get weather from coordinates = 'https://api.openweathermap.org/data/2.5/forecast?lat={lat}&lon={lon}&appid=ea7c84a3e4005b409a9bd52d73a72b21'
